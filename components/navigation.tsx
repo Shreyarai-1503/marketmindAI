@@ -8,11 +8,12 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { UserNav } from "@/components/user-nav";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
+import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 
 export function Navigation() {
   const pathname = usePathname();
-  const { isSignedIn, user } = useUser();
+  const { isSignedIn, user, isLoaded } = useUser();
   const [isClient, setIsClient] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -63,12 +64,19 @@ export function Navigation() {
 
         <div className="ml-auto flex items-center space-x-4">
           <ThemeToggle />
-          {isClient && isSignedIn ? (
-            <UserNav user = {user} />
-          ) : (
-            <Link href="/signin">
-              <Button>Sign in</Button>
-            </Link>
+          {isClient && isLoaded && (
+            <>
+              <SignedIn>
+                <UserNav user={user} />
+              </SignedIn>
+              <SignedOut>
+                <SignInButton mode="modal">
+                  <Button variant="default">
+                    Sign in
+                  </Button>
+                </SignInButton>
+              </SignedOut>
+            </>
           )}
         </div>
 
