@@ -67,7 +67,7 @@ export function Navigation() {
           {isClient && isLoaded && (
             <>
               <SignedIn>
-                <UserNav user={user} />
+                <UserNav />
               </SignedIn>
               <SignedOut>
                 <SignInButton mode="modal">
