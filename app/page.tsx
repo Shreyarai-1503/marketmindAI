@@ -20,7 +20,7 @@ export default function Home() {
               Get Started
             </Button>
           </Link>
-          <Link href="/insights">
+          <Link href="#insights">
             <Button size="lg" variant="outline">
               View Insights
             </Button>
@@ -28,7 +28,7 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+      <div id="insights" className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
         <Card className="p-6">
           <Brain className="w-12 h-12 mb-4 text-primary" />
           <h3 className="text-xl font-semibold mb-2">AI-Powered Analysis</h3>
