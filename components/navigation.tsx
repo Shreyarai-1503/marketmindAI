@@ -7,10 +7,18 @@ import { Brain } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { UserNav } from "@/components/user-nav";
 import { useSession } from "next-auth/react";
+import { useUser } from "@clerk/nextjs";
+import { useEffect, useState } from "react";
+
 
 export function Navigation() {
   const pathname = usePathname();
-  const { data: session } = useSession();
+  const { isSignedIn, user } = useUser();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   const routes = [
     {
@@ -52,11 +60,11 @@ export function Navigation() {
         </nav>
         <div className="ml-auto flex items-center space-x-4">
           <ThemeToggle />
-          {session ? (
-            <UserNav user={session.user} />
+          {isClient && isSignedIn ? (
+            <UserNav user = {user} />
           ) : (
-            <Link href="/api/auth/signin">
-              <Button>Sign In</Button>
+            <Link href="/signin">
+              <Button>Sign in</Button>
             </Link>
           )}
         </div>
