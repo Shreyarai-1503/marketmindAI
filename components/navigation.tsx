@@ -23,19 +23,24 @@ export function Navigation() {
 
   const routes = [
     {
-      href: "/dashboard",
-      label: "Dashboard",
-      active: pathname === "/dashboard",
-    },
-    {
       href: "#insights",
       label: "Insights",
       active: pathname === "/insights",
     },
     {
+      href: "/dashboard",
+      label: "Dashboard",
+      active: pathname === "/dashboard",
+    },
+    {
       href: "/campaigns",
       label: "Campaigns",
       active: pathname === "/campaigns",
+    },
+    {
+      href: "#pricing",
+      label: "Pricing",
+      active: pathname === "/pricing",
     },
   ];
 

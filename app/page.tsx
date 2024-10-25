@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer";
+import { PricingCard } from "@/components/PricingCard";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Brain, ChartBar, Globe2, Lightbulb, Target } from "lucide-react";
@@ -75,18 +77,8 @@ export default function Home() {
         </Card>
       </div>
 
-      <section className="text-center bg-muted rounded-lg p-12">
-        <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Marketing?</h2>
-        <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Join innovative brands using MarketMind AI to create impactful marketing
-          strategies across India's diverse markets.
-        </p>
-        <Link href="/dashboard">
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
-            Start Your Journey
-          </Button>
-        </Link>
-      </section>
+        <PricingCard />
+        <Footer /> 
     </div>
   );
 }
