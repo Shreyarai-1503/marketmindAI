@@ -13,12 +13,13 @@ import { SignInButton, SignedIn, SignedOut } from "@clerk/nextjs";
 
 export function Navigation() {
   const pathname = usePathname();
-  const { isSignedIn, user, isLoaded } = useUser();
-  const [isClient, setIsClient] = useState(false);
+  // const { isSignedIn, user, isLoaded } = useUser();
+  // const [isClient, setIsClient] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
-    setIsClient(true);
+    setIsMounted(true);
   }, []);
 
   const routes = [
@@ -43,6 +44,8 @@ export function Navigation() {
       active: pathname === "/pricing",
     },
   ];
+
+  if (!isMounted) return null;
 
   return (
     <header className="px-4 top-0 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -69,8 +72,6 @@ export function Navigation() {
 
         <div className="ml-auto flex items-center space-x-4">
           <ThemeToggle />
-          {isClient && isLoaded && (
-            <>
               <SignedIn>
                 <UserNav />
               </SignedIn>
@@ -81,8 +82,6 @@ export function Navigation() {
                   </Button>
                 </SignInButton>
               </SignedOut>
-            </>
-          )}
         </div>
 
         {/* Hamburger Icon - Hidden on medium screens and up*/}
