@@ -6,7 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Brain } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { UserNav } from "@/components/user-nav";
-import { useSession } from "next-auth/react";
 import { useUser } from "@clerk/nextjs";
 import { useEffect, useState } from "react";
 
@@ -15,16 +14,11 @@ export function Navigation() {
   const pathname = usePathname();
   const { isSignedIn, user } = useUser();
   const [isClient, setIsClient] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
-import { useState } from "react";
-
-export function Navigation() {
-  const pathname = usePathname();
-  const { data: session } = useSession();
-  const [menuOpen, setMenuOpen] = useState(false);
 
   const routes = [
     {
