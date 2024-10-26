@@ -1,8 +1,9 @@
+import InteractiveMap from '@/components/InteractiveMap'
 import React from 'react'
 
 const Dashboard = () => {
   return (
-    <div></div>
+    <InteractiveMap/>
   )
 }
 
