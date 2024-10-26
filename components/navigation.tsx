@@ -23,7 +23,7 @@ export function Navigation() {
 
   const routes = [
     {
-      href: "#insights",
+      href: "./#insights",
       label: "Insights",
       active: pathname === "/insights",
     },
@@ -38,7 +38,7 @@ export function Navigation() {
       active: pathname === "/campaigns",
     },
     {
-      href: "#pricing",
+      href: "./#pricing",
       label: "Pricing",
       active: pathname === "/pricing",
     },
