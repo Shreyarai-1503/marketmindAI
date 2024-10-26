@@ -2,7 +2,6 @@
 import { Sparkle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-// import { toast } from 'react-hot-toast'
 // import axios from 'axios'
 // import { useCurrentUser } from '@/hooks/use-current-user'
 import { useRouter } from "next/navigation";
@@ -10,21 +9,36 @@ import { useRouter } from "next/navigation";
 // Update Tiers Here
 export const tiers = [
   {
-    name: "Hobby",
-    price: "8",
-    features: "All the basics for starting a new hobby!",
+    name: "Basic",
+    price: "0",
+    features: [
+      "Access to basic resources",
+      "Community support",
+      "Beginner tutorials",
+    ],
     cta: "Get Started",
   },
   {
     name: "Startup",
-    price: "28",
-    features: "All the basics for starting a new business!",
+    price: "2999",
+    features: [
+      "All the basics for starting a new business!",
+      "Priority support",
+      "Advanced tutorials",
+      "Weekly webinars",
+    ],
     cta: "Get Started",
   },
   {
     name: "Enterprise",
-    price: "35",
-    features: "All the basics for accelerating business!",
+    price: "5999",
+    features: [
+      "All the basics for accelerating business!",
+      "Dedicated account manager",
+      "Monthly performance review",
+      "24/7 support",
+      "Customizable solutions",
+    ],
     cta: "Get Started",
   },
 ];
@@ -37,13 +51,12 @@ export const PricingCard = () => {
 
   // const onClick = async () => {
   //   if (!session) {
-  //     toast('👇 Sign in to purchase!')
   //     router.push('/login')
   //     return
   //   }
   //   try {
   //     setIsLoading(true)
-  //     const response = await axios.post('/api/checkout')
+  //     const response = await axios.post('/api/.....')
   //     window.location.href = response.data.url
   //   } catch (error) {
   //     toast.error('An error occured! Please try again.')
@@ -69,18 +82,25 @@ export const PricingCard = () => {
           <div
             key={tier.name}
             className={
-              "relative flex flex-col p-6 shadow-lg rounded-lg justify-between ring-2 ring-inset w-full max-w-[550px] ring-foreground/10 "
+              "relative flex flex-col p-6 shadow-lg rounded-lg justify-between ring-2 ring-inset w-full max-w-[550px] ring-foreground/10 h-[400px]" // Set a fixed height for every card
             }
           >
             {/* Pricing */}
-            <div>
+            <div className="flex-grow">
               <h3 className={`text-lg font-semibold text-foreground/70`}>
                 {tier.name}
               </h3>
-              <p>{tier.features}</p>
-              <div className={`mt-4 text-foreground/70`}>
-                <span className="text-4xl font-bold">Rs. {tier.price}</span> /month
-              </div>
+              <ul className="mt-2 mb-4 text-foreground/70">
+                {tier.features.map((feature, index) => (
+                  <li key={index} className="list-disc list-inside">
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Price */}
+            <div className={`absolute bottom-20 left-0 right-0 mt-4 text-foreground/70 text-center`}>
+              <span className="text-4xl font-bold">Rs. {tier.price}</span> /month
             </div>
             {/* Button */}
             <div className="mt-6">
