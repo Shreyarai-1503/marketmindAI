@@ -55,7 +55,7 @@ const Footer = () => {
       {/* Divider */}
       <div className="border-t border-gray-700 mt-8 pt-4 text-center">
         <p className="text-sm text-gray-400">
-          &copy; {new Date().getFullYear()} MarketMind AI. All rights reserved.
+          &copy; 2024 MarketMind AI. All rights reserved.
         </p>
       </div>
     </footer>
