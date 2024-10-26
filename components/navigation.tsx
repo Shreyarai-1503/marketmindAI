@@ -34,9 +34,9 @@ export function Navigation() {
       active: pathname === "/dashboard",
     },
     {
-      href: "/campaigns",
+      href: "/campaign",
       label: "Campaigns",
-      active: pathname === "/campaigns",
+      active: pathname === "/campaign",
     },
     {
       href: "#pricing",
