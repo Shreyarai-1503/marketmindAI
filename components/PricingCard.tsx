@@ -79,7 +79,7 @@ export const PricingCard = () => {
               </h3>
               <p>{tier.features}</p>
               <div className={`mt-4 text-foreground/70`}>
-                <span className="text-4xl font-bold">${tier.price}</span> /month
+                <span className="text-4xl font-bold">Rs{tier.price}</span> /month
               </div>
             </div>
             {/* Button */}
